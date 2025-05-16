@@ -1,0 +1,40 @@
+{
+  "id": "de.senoro.smartsecurity",
+  "version": "1.0.0",
+  "compatibility": ">=12.2.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Senoro Smart Security"
+  },
+  "description": {
+    "en": "Smart security solutions for your home.",
+    "nl": "Slimme beveiligingsoplossingen voor uw huis.",
+    "de": "Intelligente Sicherheitslösungen für Ihr Zuhause.",    
+    "fr": "Solutions de sécurité intelligentes pour votre maison.",
+    "it": "Soluzioni di sicurezza intelligenti per la tua casa.",
+    "sv": "Smarta säkerhetslösningar för ditt hem.",
+    "no": "Smarte sikkerhetsløsninger for hjemmet ditt.",
+    "es": "Soluciones de seguridad inteligentes para su hogar.",
+    "da": "Smartsikkerhedsløsninger til dit hjem.",
+    "ru": "Умные решения безопасности для вашего дома.",
+    "pl": "Inteligentne rozwiązania zabezpieczające dla Twojego domu.",
+    "ko": "스마트 보안 솔루션"
+  },
+  "category": [
+    "security"
+  ],
+  "brandColor": "#D89185",
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Christian Grewenig",
+    "email": "christian@grewenig.de"
+  }
+}

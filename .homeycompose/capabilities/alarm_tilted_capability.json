@@ -1,0 +1,12 @@
+{
+  "type": "boolean",
+  "title": { 
+    "en": "Tilted",
+    "de": "Gekippt"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "sensor",
+  "uiQuickAction": true,
+  "icon": "/assets/alarm_tilted.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "boolean",
+  "title": { 
+    "en": "Closed",
+    "de": "Geschlossen"
+   },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "sensor",
+  "uiQuickAction": true,
+  "icon": "/assets/closed.svg"
+}

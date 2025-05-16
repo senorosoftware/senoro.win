@@ -1,0 +1,234 @@
+{
+  "conditions": [
+    {
+      "id": "state_condition",
+      "title": {
+        "en": "Is (open/closed/tilted)",
+        "de": "Ist (offen/geschlossen/gekippt)",
+        "nl": "Is (open/gesloten/gekanteld)",
+        "fr": "Est (ouvert/fermé/incliné)",
+        "it": "È (aperto/chiuso/inclinato)",
+        "sv": "Är (öppen/stängd/tiltad)",
+        "no": "Er (åpen/lukket/tiltet)",
+        "es": "Es (abierto/cerrado/inclinado)",
+        "da": "Er (åben/lukket/tiltet)",
+        "ru": "Это (открыто/закрыто/наклонено)",
+        "pl": "To (otwarte/zamknięte/uchylone)",
+        "ko": "이 (열림/닫힘/틸트됨)"
+      },
+      "titleFormatted": {
+        "en": "Is [[when]]",
+        "de": "Ist [[when]]",
+        "nl": "Is [[when]]",
+        "fr": "Est [[when]]",
+        "it": "È [[when]]",
+        "sv": "Är [[when]]",
+        "no": "Er [[when]]",
+        "es": "Es [[when]]",
+        "da": "Er [[when]]",
+        "ru": "Это [[when]]",
+        "pl": "To [[when]]",
+        "ko": "이 [[when]]"
+      },
+      "hint": {
+        "de": "Diese Bedingung ist wahr, wenn der Status den gewünschten Wert hat.",
+        "en": "This condition is true when the state has the desired value.",
+        "nl": "Deze voorwaarde is waar wanneer de status de gewenste waarde heeft.",
+        "fr": "Cette condition est vraie lorsque l'état a la valeur souhaitée.",
+        "it": "Questa condizione è vera quando lo stato ha il valore desiderato.",
+        "sv": "Detta villkor är sant när status har det önskade värdet.",
+        "no": "Denne tilstanden er sann når status har ønsket verdi.",
+        "es": "Esta condición es verdadera cuando el estado tiene el valor deseado.",
+        "da": "Denne betingelse er sand, når status har den ønskede værdi.",
+        "ru": "Это условие истинно, когда состояние имеет желаемое значение.",
+        "pl": "To warunek jest prawdziwy, gdy stan ma pożądaną wartość.",
+        "ko": "이 조건은 상태가 원하는 값을 가질 때 참입니다."        
+      },
+      "args": [
+        {
+          "name": "when",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "0",
+              "label": { 
+                "en": "Open", 
+                "de": "Offen",
+                "nl": "Open",
+                "fr": "Ouvert",
+                "it": "Aperto",
+                "sv": "Öppen",
+                "no": "Åpen",
+                "es": "Abierto",
+                "da": "Åben",
+                "ru": "Открыто",
+                "pl": "Otwarte",
+                "ko": "열림"
+              }
+            },
+            {
+              "id": "1",
+              "label": { 
+                "en": "Closed", 
+                "de": "Geschlossen",
+                "nl": "Gesloten",
+                "fr": "Fermé",
+                "it": "Chiuso",
+                "sv": "Stängd",
+                "no": "Lukket",
+                "es": "Cerrado",
+                "da": "Lukket",
+                "ru": "Закрыто",
+                "pl": "Zamknięte",
+                "ko": "닫힘"
+              }
+            },
+            {
+              "id": "2",
+              "label": { 
+                "en": "Tilted", 
+                "de": "Gekippt",
+                "nl": "Gekanteld",
+                "fr": "Incliné",
+                "it": "Inclinato",
+                "sv": "Tiltad",
+                "no": "Tiltet",
+                "es": "Inclinado",
+                "da": "Tiltet",
+                "ru": "Наклонено",
+                "pl": "Uchylone",
+                "ko": "틸트됨"
+               }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "triggers": [
+    {
+      "id": "state_changed",
+      "title": {
+        "en": "State changed",
+        "de": "Status hat sich geändert",
+        "nl": "Status gewijzigd",
+        "fr": "État changé",
+        "it": "Stato cambiato",
+        "sv": "Status ändrad",
+        "no": "Status endret",
+        "es": "Estado cambiado",
+        "da": "Status ændret",
+        "ru": "Состояние изменено",
+        "pl": "Stan zmieniony",
+        "ko": "상태 변경됨"
+      },
+      "hint": {
+        "de": "Diese Karte startet, wenn sich der Status ändert.",
+        "en": "This card starts when the state changes.",
+        "nl": "Deze kaart start wanneer de status verandert.",
+        "fr": "Cette carte démarre lorsque l'état change.",
+        "it": "Questa scheda inizia quando lo stato cambia.",
+        "sv": "Detta kort startar när status ändras.",
+        "no": "Dette kortet starter når status endres.",
+        "es": "Esta tarjeta comienza cuando el estado cambia.",
+        "da": "Dette kort starter, når status ændres.",
+        "ru": "Эта карта запускается, когда состояние изменяется.",
+        "pl": "Ta karta uruchamia się, gdy stan się zmienia.",
+        "ko": "이 카드는 상태가 변경될 때 시작됩니다."
+      }
+    },
+    {
+      "id": "closed",
+      "title": {
+        "en": "Is closed",
+        "de": "Ist geschlossen",
+        "nl": "Is gesloten",
+        "fr": "Est fermé",
+        "it": "È chiuso",
+        "sv": "Är stängd",
+        "no": "Er lukket",
+        "es": "Está cerrado",
+        "da": "Er lukket",
+        "ru": "Закрыто",
+        "pl": "Jest zamknięte",
+        "ko": "닫힘"
+      },
+      "hint": {
+        "en": "This card starts when the window is closed.",
+        "de": "Diese Karte startet, wenn das Fenster geschlossen ist.",
+        "nl": "Deze kaart start wanneer het raam is gesloten.",
+        "fr": "Cette carte démarre lorsque la fenêtre est fermée.",
+        "it": "Questa scheda inizia quando la finestra è chiusa.",
+        "sv": "Detta kort startar när fönstret är stängt.",
+        "no": "Dette kortet starter når vinduet er lukket.",
+        "es": "Esta tarjeta comienza cuando la ventana está cerrada.",
+        "da": "Dette kort starter, når vinduet er lukket.",
+        "ru": "Эта карта запускается, когда окно закрыто.",
+        "pl": "Ta karta uruchamia się, gdy okno jest zamknięte.",
+        "ko": "이 카드는 창문이 닫힐 때 시작됩니다."
+      }
+    },
+    {
+      "id": "opened",
+      "title": {
+        "en": "Is opened",
+        "de": "Ist geöffnet",
+        "nl": "Is geopend",
+        "fr": "Est ouvert",
+        "it": "È aperto",
+        "sv": "Är öppen",
+        "no": "Er åpen",
+        "es": "Está abierto",
+        "da": "Er åben",
+        "ru": "Открыто",
+        "pl": "Jest otwarte",
+        "ko": "열림"
+      },
+      "hint": {
+        "en": "This card starts when the window is opened.",
+        "de": "Diese Karte startet, wenn das Fenster geöffnet ist.",
+        "nl": "Deze kaart start wanneer het raam is geopend.",
+        "fr": "Cette carte démarre lorsque la fenêtre est ouverte.",
+        "it": "Questa scheda inizia quando la finestra è aperta.",
+        "sv": "Detta kort startar när fönstret är öppet.",
+        "no": "Dette kortet starter når vinduet er åpent.",
+        "es": "Esta tarjeta comienza cuando la ventana está abierta.",
+        "da": "Dette kort starter, når vinduet er åbent.",
+        "ru": "Эта карта запускается, когда окно открыто.",
+        "pl": "Ta karta uruchamia się, gdy okno jest otwarte.",
+        "ko": "이 카드는 창문이 열릴 때 시작됩니다."
+      }
+    },
+    {
+      "id": "tilted",
+      "title": {
+        "en": "Is tilted",
+        "de": "Ist gekippt",
+        "nl": "Is gekanteld",
+        "fr": "Est incliné",
+        "it": "È inclinato",
+        "sv": "Är lutad",
+        "no": "Er tiltet",
+        "es": "Está inclinado",
+        "da": "Er tiltet",
+        "ru": "Наклонено",
+        "pl": "Jest uchylone",
+        "ko": "틸트됨"
+      },
+      "hint": {
+        "en": "This card starts when the window is tilted.",
+        "de": "Diese Karte startet, wenn das Fenster gekippt ist.",
+        "nl": "Deze kaart start wanneer het raam is gekanteld.",
+        "fr": "Cette carte démarre lorsque la fenêtre est inclinée.",
+        "it": "Questa scheda inizia quando la finestra è inclinata.",
+        "sv": "Detta kort startar när fönstret är lutat.",
+        "no": "Dette kortet starter når vinduet er tiltet.",
+        "es": "Esta tarjeta comienza cuando la ventana está inclinada.",
+        "da": "Dette kort starter, når vinduet er tiltet.",
+        "ru": "Эта карта запускается, когда окно наклонено.",
+        "pl": "Ta karta uruchamia się, gdy okno jest uchylone.",
+        "ko": "이 카드는 창문이 기울어질 때 시작됩니다."        
+      }
+    }
+  ]
+}

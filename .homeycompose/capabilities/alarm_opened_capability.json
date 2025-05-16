@@ -1,0 +1,12 @@
+{
+  "type": "boolean",
+  "title": {
+     "en": "Opened",
+     "de": "Geöffnet"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "sensor",
+  "uiQuickAction": true,
+  "icon": "/assets/alarm_opened.svg"
+}

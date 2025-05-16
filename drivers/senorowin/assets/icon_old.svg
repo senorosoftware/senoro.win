@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 960 960" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,61,-4.26326e-13)">
+        <path d="M460,112C460,105.377 454.623,100 448,100L392,100C385.377,100 380,105.377 380,112L380,888C380,894.623 385.377,900 392,900L448,900C454.623,900 460,894.623 460,888L460,112Z" style="fill:white;stroke:black;stroke-width:7.12px;"/>
+        <g transform="matrix(2,0,0,1,-420,0)">
+            <path d="M430,160C430,148.962 425.519,140 420,140C414.481,140 410,148.962 410,160L410,280C410,291.038 414.481,300 420,300C425.519,300 430,291.038 430,280L430,160Z" style="fill:white;stroke:black;stroke-width:2.57px;"/>
+        </g>
+        <g transform="matrix(4,0,0,2,-1280,-240)">
+            <ellipse cx="425" cy="230" rx="5" ry="10" style="fill:white;stroke:black;stroke-width:0.46px;"/>
+        </g>
+        <g transform="matrix(0.925,0,0,1,31.5,0)">
+            <rect x="380" y="460" width="80" height="170" style="fill:white;stroke:black;stroke-width:1.51px;"/>
+        </g>
+        <g transform="matrix(2,0,0,2,-440,-420)">
+            <circle cx="430" cy="410" r="10" style="fill:white;stroke:black;stroke-width:0.73px;"/>
+        </g>
+        <g transform="matrix(3,0,0,2.72727,-855,-705.909)">
+            <ellipse cx="425" cy="405.5" rx="5" ry="5.5" style="fill:white;stroke:black;stroke-width:0.51px;"/>
+        </g>
+        <g transform="matrix(1.93333,0,0,1.5,-421,-290)">
+            <ellipse cx="435" cy="540" rx="15" ry="20" style="fill:white;stroke:black;stroke-width:0.59px;"/>
+        </g>
+        <g transform="matrix(1.6,0,0,1.25,-276,-155)">
+            <ellipse cx="435" cy="540" rx="15" ry="20" style="fill:white;stroke:black;stroke-width:2.83px;"/>
+        </g>
+        <ellipse cx="395.5" cy="805" rx="4.5" ry="5" style="fill:white;stroke:black;stroke-width:1.02px;"/>
+        <ellipse cx="444.5" cy="805" rx="4.5" ry="5" style="fill:white;stroke:black;stroke-width:1.02px;"/>
+    </g>
+</svg>

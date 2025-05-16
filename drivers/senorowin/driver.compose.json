@@ -1,0 +1,54 @@
+{
+  "name": {
+    "en": "Senoro.WIN"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "alarm_opened_capability",
+    "closed_capability",
+    "alarm_tilted_capability",    
+    "alarm_tamper",
+    "measure_battery"
+  ],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "energy": {
+    "batteries": ["AAA", "AAA", "AAA"]
+  },
+  "zigbee": {
+    "manufacturerName": "_TZE200_ytx9fudw",
+    "productId": ["TS0601", "TS0601\u0000"],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 1, 4, 5, 61184],
+        "bindings": [61184]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Press and hold the module button until a signal tone sounds once. Release the module button and press it again so that the signal tone sounds once to confirm the connection.\n\n",
+        "de": "Modul Knopf gedrückt halten bis 1x ein Signalton ertönt. Module Knopf loslassen und erneut drücken, so dass der Signalton 1x ertönt, um die Anbindung zu bestätigen.\n\n",
+        "nl": "Houd de moduleknop ingedrukt totdat er 1x een signaaltoon klinkt. Laat de moduleknop los en druk deze opnieuw in, zodat de signaaltoon 1x klinkt om de verbinding te bevestigen.\n\n",
+        "fr": "Appuyez et maintenez le bouton du module jusqu'à ce qu'un signal sonore retentisse une fois. Relâchez le bouton du module et appuyez à nouveau dessus pour que le signal sonore retentisse une fois pour confirmer la connexion.\n\n",
+        "it": "Premere e tenere premuto il pulsante del modulo fino a quando non si sente un segnale acustico una volta. Rilasciare il pulsante del modulo e premerlo di nuovo in modo che il segnale acustico suoni una volta per confermare la connessione.\n\n",
+        "sv": "Tryck och håll ned modulkontakten tills en signalton ljuder en gång. Släpp modulkontakten och tryck på den igen så att signaltonen ljuder en gång för att bekräfta anslutningen.\n\n",
+        "no": "Trykk og hold modulkontakten til et signaltoner en gang. Slipp modulkontakten og trykk på den igjen slik at signaltonen høres en gang for å bekrefte tilkoblingen.\n\n",
+        "es": "Mantenga presionado el botón del módulo hasta que suene un tono de señal una vez. Suelte el botón del módulo y presiónelo nuevamente para que suene el tono de señal una vez para confirmar la conexión.\n\n",
+        "da": "Tryk og hold modulkontakten, indtil en signaltone lyder én gang. Slip modulkontakten, og tryk på den igen, så signaltonen lyder én gang for at bekræfte forbindelsen.\n\n",
+        "ru": "Нажмите и удерживайте кнопку модуля, пока сигнал не прозвучит один раз. Отпустите кнопку модуля и снова нажмите на нее, чтобы сигнал прозвучал один раз для подтверждения подключения.\n\n",
+        "pl": "Naciśnij i przytrzymaj przycisk modułu, aż sygnał dźwiękowy zabrzmi raz. Zwolnij przycisk modułu i naciśnij go ponownie, aby sygnał dźwiękowy zabrzmiał raz w celu potwierdzenia połączenia.\n\n",
+        "ko": "모듈 버튼을 눌러 1회 신호음이 울릴 때까지 누르고 있습니다. 모듈 버튼을 놓고 다시 눌러 신호음이 1회 울려 연결을 확인합니다.\n\n"
+      }
+    }
+  }
+}
