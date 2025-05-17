@@ -22,7 +22,7 @@
     "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
   },
   "energy": {
-    "batteries": ["AAA", "AAA", "AAA"]
+    "batteries": ["CR2032", "CR2032", "CR2032"]
   },
   "zigbee": {
     "manufacturerName": "_TZE200_ytx9fudw",
