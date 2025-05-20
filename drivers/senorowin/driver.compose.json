@@ -8,6 +8,7 @@
     "closed_capability",
     "alarm_tilted_capability",    
     "alarm_tamper",
+    "alarm_tamper_capability",
     "measure_battery"
   ],
   "platforms": [

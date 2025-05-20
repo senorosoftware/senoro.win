@@ -84,4 +84,4 @@ class TuyaSpecificCluster extends Cluster {
   }
 }
 
-module.exports = { TuyaSpecificCluster };
+module.exports = TuyaSpecificCluster;

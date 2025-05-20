@@ -1,0 +1,11 @@
+{
+  "type": "boolean",
+  "title": { 
+    "en": "Tamper alarm",
+    "de": "Manipulationsalarm"
+   },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "toggle",
+  "uiQuickAction": true  
+}

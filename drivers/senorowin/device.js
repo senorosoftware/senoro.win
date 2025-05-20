@@ -2,7 +2,7 @@
 
 const { ZigBeeDevice } = require("homey-zigbeedriver");
 const { Cluster, CLUSTER } = require('zigbee-clusters');
-const { TuyaSpecificCluster } = require("./clusters/TuyaSpecificCluster");
+const TuyaSpecificCluster = require("./clusters/TuyaSpecificCluster");
 
 Cluster.addCluster(TuyaSpecificCluster);
 const dataTypes = {
@@ -48,11 +48,21 @@ const getDataValue = (dpValue) => {
 
 module.exports = class SenoroWin extends ZigBeeDevice {
 
+   _transactionID = 0;
+    
+    set transactionID(val) {
+        this._transactionID = val % 256;  // Ensure transaction ID stays within the range
+    }
+
+    get transactionID() {
+        return this._transactionID;
+    }
+
   async onMeshInit() {
     this.log("onNodeInit");
   }
 
-  async onNodeInit({ zclNode }) {    
+  async onNodeInit({ zclNode }) {
     this.enableDebug();
     this.printNode();
 
@@ -61,18 +71,62 @@ module.exports = class SenoroWin extends ZigBeeDevice {
     this.addCapability("alarm_tilted_capability");
     this.addCapability("alarm_tamper");
     this.addCapability("measure_battery");
+    
+    // this.registerCapability('alarm_tamper_capability', TuyaSpecificCluster, {
+    //   set: 'datapoint',
+    //   setParser(value) {
+    //     this.transactionId = (this.transactionId + 1) % 256 || 1;
+    //     return {
+    //       status: 0,
+    //       transid: this.transactionId,
+    //       dp: 16, // Tuya-Datapoint für Tamper
+    //       datatype: 1, // bool
+    //       length: 1,
+    //       data: Buffer.from([value ? 1 : 0]),
+    //     };
+    //   },
+    // });
+
 
     zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
     zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processReporting(value));
-    zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processDatapoint(value));   
-  }  
+    zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processDatapoint(value));
+
+    this.registerCapabilityListener('alarm_tamper_capability', async () => {
+      this.log('Alarm tamper capability triggered');
+      const tamperCapability = this.getCapabilityValue('alarm_tamper_capability');
+      if (tamperCapability === true) {
+        //this.setCapabilityValue('alarm_tamper_capability', false).catch(this.error);
+        //this.setClusterCapabilityValue('alarm_tamper_capability', false, TuyaSpecificCluster).catch(this.error);
+        await this.writeBool(16, false);
+        this.log('Alarm tamper capability set to false');        
+      }
+    });
+  }
+
+  async writeBool(dp, value) {
+        const data = Buffer.alloc(1);
+        data.writeUInt8(value ? 0x01 : 0x00, 0);
+        try {
+            return await this.zclNode.endpoints[1].clusters.tuya.datapoint({
+                status: 0,
+                transid: this.transactionID++,
+                dp,
+                datatype: 1,  // Boolean datatype
+                length: 1,
+                data
+            });
+        } catch (err) {
+            this.error(`Error writing boolean to dp ${dp}:`, err);
+        }
+    }
 
   async getConditionValue(args) {
     const openedCapability = this.getCapabilityValue('alarm_opened_capability');
     const closedCapability = this.getCapabilityValue('closed_capability');
     const tiltedCapability = this.getCapabilityValue('alarm_tilted_capability');
 
-    if (args === '0' && openedCapability === true) {      
+    if (args === '0' && openedCapability === true) {
       return true;
     }
 
@@ -105,7 +159,7 @@ module.exports = class SenoroWin extends ZigBeeDevice {
   async processResponse(data) { // Based on the syren driver
     const dp = data.dp;
     const value = getDataValue(data);
-    //this.log('received data: ', data, ' dp: ', dp, ' value: ', value);
+    this.log('received data: ', data, ' dp: ', dp, ' value: ', value);
     switch (dp) {
       case 101:
         this.log('State is ', this.getState(value));
@@ -139,9 +193,9 @@ module.exports = class SenoroWin extends ZigBeeDevice {
         break;
 
       case 16:
-        const alarm_tamper = value === 1;
-        this.log('Alarm tamper is ', alarm_tamper);
-        this.setCapabilityValue('alarm_tamper', alarm_tamper).catch(this.error);
+        this.log('Alarm tamper is ', value);
+        this.setCapabilityValue('alarm_tamper', value).catch(this.error);
+        this.setCapabilityValue('alarm_tamper_capability', value).catch(this.error);
         break;
 
       case 2:
@@ -161,20 +215,20 @@ module.exports = class SenoroWin extends ZigBeeDevice {
   }
 
   processDatapoint(data) {
-    
+
   }
 
   /**
    * onInit is called when the device is initialized.
    */
-  async onInit() {    
+  async onInit() {
     super.onInit();
   }
 
   /**
    * onAdded is called when the user adds the device, called just after pairing.
    */
-  async onAdded() {    
+  async onAdded() {
     super.onAdded();
   }
 
@@ -183,14 +237,14 @@ module.exports = class SenoroWin extends ZigBeeDevice {
    * This method can be used this to synchronise the name to the device.
    * @param {string} name The new name
    */
-  async onRenamed(name) {    
+  async onRenamed(name) {
     super.onRenamed(name);
   }
 
   /**
    * onDeleted is called when the user deleted the device.
    */
-  async onDeleted() {    
+  async onDeleted() {
     super.onDeleted();
   }
 };

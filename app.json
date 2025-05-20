@@ -316,6 +316,7 @@
         "closed_capability",
         "alarm_tilted_capability",
         "alarm_tamper",
+        "alarm_tamper_capability",
         "measure_battery"
       ],
       "platforms": [
@@ -331,9 +332,9 @@
       },
       "energy": {
         "batteries": [
-          "AAA",
-          "AAA",
-          "AAA"
+          "CR2032",
+          "CR2032",
+          "CR2032"
         ]
       },
       "zigbee": {
@@ -389,6 +390,17 @@
       "uiComponent": "sensor",
       "uiQuickAction": true,
       "icon": "/assets/alarm_opened.svg"
+    },
+    "alarm_tamper_capability": {
+      "type": "boolean",
+      "title": {
+        "en": "Tamper alarm",
+        "de": "Manipulationsalarm"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle",
+      "uiQuickAction": true
     },
     "alarm_tilted_capability": {
       "type": "boolean",
