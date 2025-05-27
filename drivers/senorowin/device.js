@@ -71,22 +71,6 @@ module.exports = class SenoroWin extends ZigBeeDevice {
     this.addCapability("alarm_tilted_capability");
     this.addCapability("alarm_tamper");
     this.addCapability("measure_battery");
-    
-    // this.registerCapability('alarm_tamper_capability', TuyaSpecificCluster, {
-    //   set: 'datapoint',
-    //   setParser(value) {
-    //     this.transactionId = (this.transactionId + 1) % 256 || 1;
-    //     return {
-    //       status: 0,
-    //       transid: this.transactionId,
-    //       dp: 16, // Tuya-Datapoint für Tamper
-    //       datatype: 1, // bool
-    //       length: 1,
-    //       data: Buffer.from([value ? 1 : 0]),
-    //     };
-    //   },
-    // });
-
 
     zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
     zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processReporting(value));
@@ -95,13 +79,14 @@ module.exports = class SenoroWin extends ZigBeeDevice {
     this.registerCapabilityListener('alarm_tamper_capability', async () => {
       this.log('Alarm tamper capability triggered');
       const tamperCapability = this.getCapabilityValue('alarm_tamper_capability');
-      if (tamperCapability === true) {
-        //this.setCapabilityValue('alarm_tamper_capability', false).catch(this.error);
-        //this.setClusterCapabilityValue('alarm_tamper_capability', false, TuyaSpecificCluster).catch(this.error);
+      if (tamperCapability === true) {        
         await this.writeBool(16, false);
         this.log('Alarm tamper capability set to false');        
       }
     });
+
+    this.setCapabilityValue('alarm_tamper', false).catch(this.error);
+    this.setCapabilityValue('alarm_tamper_capability', false).catch(this.error);
   }
 
   async writeBool(dp, value) {
@@ -198,10 +183,9 @@ module.exports = class SenoroWin extends ZigBeeDevice {
         this.setCapabilityValue('alarm_tamper_capability', value).catch(this.error);
         break;
 
-      case 2:
-        const batteryPct = Math.min(100, Math.round((value * 100) / 255));
-        this.log('Battery percentage is ', batteryPct);
-        this.setCapabilityValue('measure_battery', batteryPct).catch(this.error);
+      case 2:        
+        this.log('Battery percentage is ', value);
+        this.setCapabilityValue('measure_battery', value).catch(this.error);
         break;
       default:
         this.error(`WARN: NOT PROCESSED Tuya cmd: dp='${dp}' value='${measuredValue}' descMap.data='${JSON.stringify(data)}'`);
@@ -215,7 +199,7 @@ module.exports = class SenoroWin extends ZigBeeDevice {
   }
 
   processDatapoint(data) {
-
+    this.log("########### Datapoint: ", data);
   }
 
   /**
