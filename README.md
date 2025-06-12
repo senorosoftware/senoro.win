@@ -9,6 +9,7 @@ SENORO.WIN is your intelligent alarm system for windows that reliably deters bur
 - Download and install [Docker](https://docs.docker.com/desktop/setup/install/windows-install/).
 - Download and install [Node.js](https://nodejs.org/en/download).
 - In VisualStudio Code open a terminal window and enter `npm install --global --no-optional homey`
+- To install all dependencies enter `npm install`
 - To test the SENORO.WIN app for Homey Pro enter `homey app run`.
 - To finally install the app enter `homey app install`.
 - The app will get a **Development** badge.
